@@ -18,7 +18,7 @@ const AuthState = (props) => {
 	const loadUser = async () => {
 		if (document.cookie) {
 			try {
-				const res = await axios.get('/api/auth');
+				const res = await axios.get(`${process.env.REACT_APP_HOST || ''}/api/auth`);
 				dispatch({ type: LOAD_USER, payload: res.data });
 			} catch (err) {
 				console.error(err.response);
@@ -55,7 +55,11 @@ const AuthState = (props) => {
 			},
 		};
 		const body = JSON.stringify(newUser);
-		const res = await axios.post('/api/auth/signup', body, config);
+		const res = await axios.post(
+			`${process.env.REACT_APP_HOST || ''}/api/auth/signup`,
+			body,
+			config
+		);
 		dispatch({ type: SIGNUP_USER, payload: res.data });
 	};
 

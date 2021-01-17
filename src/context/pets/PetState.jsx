@@ -27,7 +27,7 @@ const PetState = (props) => {
 
 	const getAllPets = async () => {
 		try {
-			const res = await axios.get(`/api/pets/all`);
+			const res = await axios.get(`${process.env.REACT_APP_HOST || ''}/api/pets/all`);
 			dispatch({ type: GET_ALL_PETS, payload: res.data });
 		} catch (err) {
 			console.error(err.massage);
@@ -38,7 +38,7 @@ const PetState = (props) => {
 
 	const getPetById = async (petID) => {
 		try {
-			const res = await axios.get(`/api/pets/${petID}`);
+			const res = await axios.get(`${process.env.REACT_APP_HOST || ''}/api/pets/${petID}`);
 			dispatch({ type: GET_PET_BY_ID, payload: res.data });
 		} catch (err) {
 			console.error(err.response);
@@ -49,7 +49,9 @@ const PetState = (props) => {
 
 	const getUserPets = async () => {
 		try {
-			const res = await axios.get('/api/pets/mypets/all');
+			const res = await axios.get(
+				`${process.env.REACT_APP_HOST || ''}/api/pets/mypets/all`
+			);
 			dispatch({ type: GET_USER_PETS, payload: res.data });
 		} catch (err) {
 			console.error(err.massage);
@@ -66,7 +68,7 @@ const PetState = (props) => {
 				},
 			};
 			const body = JSON.stringify(newPet);
-			await axios.post('/api/pets/addpet', body, config);
+			await axios.post(`${process.env.REACT_APP_HOST || ''}/api/pets/addpet`, body, config);
 		} catch (err) {
 			console.error(err.response);
 		}
@@ -77,7 +79,7 @@ const PetState = (props) => {
 	// Save pet to savedPets collection ==>
 	const savePet = async (petID) => {
 		try {
-			await axios.get(`/api/pets/save/${petID}`);
+			await axios.get(`${process.env.REACT_APP_HOST || ''}/api/pets/save/${petID}`);
 		} catch (err) {
 			console.error(err.response);
 		}
@@ -95,7 +97,9 @@ const PetState = (props) => {
 	}) => {
 		// const { adoptionStatus, height, weight, name } = searchQueries;
 		const res = await axios.get(
-			`/api/pets/search?adoptionStatus=${adoptionStatus}&height=${height}&weight=${weight}&type=${type}&name=${name}`
+			`${
+				process.env.REACT_APP_HOST || ''
+			}/api/pets/search?adoptionStatus=${adoptionStatus}&height=${height}&weight=${weight}&type=${type}&name=${name}`
 		);
 		dispatch({ type: SEARCH_PETS, payload: res.data });
 	};
