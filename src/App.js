@@ -16,11 +16,11 @@ import PetProfile from './components/pages/Pet Profile/PetProfile';
 
 const App = () => {
 	const authContext = useContext(AuthContext);
-	const { loadUser } = authContext;
+	const { loadUser, token } = authContext;
 	useEffect(() => {
 		loadUser();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [token]);
 
 	return (
 		<Router>
