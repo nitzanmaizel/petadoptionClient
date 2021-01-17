@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/api"
+  from = "https://pet-adoption-clinet.netlify.app"
   to = "https://pet-adoption-server-maizel.herokuapp.com"
   status = 200
   force = true
