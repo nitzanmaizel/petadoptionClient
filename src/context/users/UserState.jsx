@@ -22,7 +22,11 @@ const UserState = (props) => {
 		};
 		const body = JSON.stringify(updateUser);
 
-		const res = await axios.put(`/api/users/${updateUser.id}`, body, config);
+		const res = await axios.put(
+			`${process.env.REACT_APP_HOST || ''}/api/users/${updateUser.id}`,
+			body,
+			config
+		);
 		dispatch({ type: UPDATE_PROFILE, payload: res.data });
 	};
 
