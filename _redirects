@@ -1,1 +1,1 @@
-/api/*  https://pet-adoption-server-maizel.herokuapp.com/:splat  200
+/api/*  https://pet-adoption-server-maizel.herokuapp.com/api/:splat  200
