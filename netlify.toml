@@ -2,3 +2,9 @@
   from = "/api/*"
   to = "https://pet-adoption-server-maizel.herokuapp.com/api/:splat"
   status = 200
+
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
