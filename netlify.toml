@@ -1,0 +1,3 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://pet-adoption-server-maizel.herokuapp.com/api/:splat"
