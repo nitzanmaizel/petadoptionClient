@@ -1,1 +1,7 @@
-/api/* https://pet-adoption-server-maizel.herokuapp.com/ 200
+
+[[redirects]]
+  from = "/api"
+  to = "https://pet-adoption-server-maizel.herokuapp.com"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}

@@ -16,11 +16,11 @@ import PetProfile from './components/pages/Pet Profile/PetProfile';
 
 const App = () => {
 	const authContext = useContext(AuthContext);
-	const { loadUser } = authContext;
+	const { loadUser, user } = authContext;
 	useEffect(() => {
 		loadUser();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [user]);
 
 	return (
 		<Router>
@@ -28,9 +28,6 @@ const App = () => {
 				<NavBar />
 				<Container>
 					<Switch>
-						{/* {routes.map((r) => (
-							<Route {...routes} />
-						))} */}
 						<Route exact path='/' component={Home}></Route>
 
 						<Route exact path='/searchpet' component={SearchPet}></Route>
