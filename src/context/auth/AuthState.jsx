@@ -16,12 +16,13 @@ const AuthState = (props) => {
 	// Load User ==>
 
 	const loadUser = async () => {
-		try {
-			const res = await axios.get(`/api/auth`);
-			console.log('loadUser', res.data);
-			dispatch({ type: LOAD_USER, payload: res.data });
-		} catch (err) {
-			console.error('loadUser', err.response);
+		if (document.cookie) {
+			try {
+				const res = await axios.get(`/api/auth`);
+				dispatch({ type: LOAD_USER, payload: res.data });
+			} catch (err) {
+				console.error('loadUser', err.response);
+			}
 		}
 	};
 

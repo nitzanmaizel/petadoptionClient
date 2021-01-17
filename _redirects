@@ -1,4 +1,2 @@
 # redirect to server in heroku
-/api/* https://pet-adoption-server-maizel.herokuapp.com/api/:splat 200!
-
-/test/* https://pet-adoption-clinet.netlify.app/api/auth/login
+/*    /index.html   200
