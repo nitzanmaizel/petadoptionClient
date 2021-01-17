@@ -22,18 +22,14 @@ const UserState = (props) => {
 		};
 		const body = JSON.stringify(updateUser);
 
-		const res = await axios.put(
-			`${process.env.REACT_APP_HOST || ''}/api/users/${updateUser.id}`,
-			body,
-			config
-		);
+		const res = await axios.put(`/api/users/${updateUser.id}`, body, config);
 		dispatch({ type: UPDATE_PROFILE, payload: res.data });
 	};
 
 	// Get user by id ==>
 	const getUserById = async (id) => {
 		try {
-			const res = await axios.get(`${process.env.REACT_APP_HOST || ''}/api/users/${id}`);
+			const res = await axios.get(`/api/users/${id}`);
 			dispatch({ type: GET_USER_BY_ID, payload: res.data });
 		} catch (err) {
 			console.error(err.response);
@@ -44,7 +40,7 @@ const UserState = (props) => {
 
 	const getAllUsers = async () => {
 		try {
-			const res = await axios.get(`${process.env.REACT_APP_HOST || ''}/api/users`);
+			const res = await axios.get(`/api/users`);
 			dispatch({ type: GET_ALL_USERS, payload: res.data });
 		} catch (err) {
 			console.error(err.massage);

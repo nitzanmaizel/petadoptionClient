@@ -21,7 +21,7 @@ const AuthState = (props) => {
 			console.log('loadUser', res.data);
 			dispatch({ type: LOAD_USER, payload: res.data });
 		} catch (err) {
-			console.error(err.response);
+			console.error('loadUser', err.response);
 		}
 	};
 
@@ -50,11 +50,7 @@ const AuthState = (props) => {
 			},
 		};
 		const body = JSON.stringify(newUser);
-		const res = await axios.post(
-			`${process.env.REACT_APP_HOST || ''}/api/auth/signup`,
-			body,
-			config
-		);
+		const res = await axios.post(`/api/auth/signup`, body, config);
 		dispatch({ type: SIGNUP_USER, payload: res.data });
 	};
 
