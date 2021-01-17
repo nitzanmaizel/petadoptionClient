@@ -36,7 +36,11 @@ const AuthState = (props) => {
 			};
 			const body = JSON.stringify(user);
 
-			const res = await axios.post('/api/auth/login', body, config);
+			const res = await axios.post(
+				`${process.env.REACT_APP_HOST || ''}/api/auth/login`,
+				body,
+				config
+			);
 			dispatch({ type: LOGIN_USER, payload: res.data });
 		} catch (err) {
 			console.error(err.response);
