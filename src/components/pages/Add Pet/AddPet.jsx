@@ -278,7 +278,7 @@ const AddPet = () => {
 								disabled={disabled}
 							>
 								{loading && <LoadingSpinner />}
-								Add a pet
+								{currentPet !== null ? 'Add a pet' : 'Update Pet'}
 							</Button>
 						</Row>
 					</Form>
