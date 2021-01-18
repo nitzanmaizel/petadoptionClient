@@ -20,7 +20,7 @@ const AddPet = () => {
 		hypoallergenic: false || currentPet.hypoallergenic,
 	});
 	const [imageState, setImageState] = useState('');
-	const [previewPetImage, setPreviewPetImage] = useState('' || currentPet.image);
+	const [previewPetImage, setPreviewPetImage] = useState('' || currentPet.petImage);
 	const [petImage, setPetImage] = useState();
 
 	const [disabled, setDisabled] = useState(false);
