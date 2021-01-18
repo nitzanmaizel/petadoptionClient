@@ -5,22 +5,22 @@ import PetContext from '../../../context/pets/petContext';
 
 const AddPet = () => {
 	const petContext = useContext(PetContext);
-	const { addPet } = petContext;
+	const { addPet, currentPet } = petContext;
 
 	const [formData, setFormData] = useState({
-		type: 'Dog',
-		name: '',
-		adoptionStatus: 'Available',
-		height: 0,
-		weight: 0,
-		color: '',
-		bio: '',
-		dietaryRestrictions: '',
-		breed: '',
-		hypoallergenic: false,
+		type: 'Dog' || currentPet.type,
+		name: '' || currentPet.name,
+		adoptionStatus: 'Available' || currentPet.adoptionStatus,
+		height: 0 || currentPet.height,
+		weight: 0 || currentPet.weight,
+		color: '' || currentPet.color,
+		bio: '' || currentPet.bio,
+		dietaryRestrictions: '' || currentPet.dietaryRestrictions,
+		breed: '' || currentPet.breed,
+		hypoallergenic: false || currentPet.hypoallergenic,
 	});
 	const [imageState, setImageState] = useState('');
-	const [previewPetImage, setPreviewPetImage] = useState('');
+	const [previewPetImage, setPreviewPetImage] = useState('' || currentPet.image);
 	const [petImage, setPetImage] = useState();
 
 	const [disabled, setDisabled] = useState(false);
