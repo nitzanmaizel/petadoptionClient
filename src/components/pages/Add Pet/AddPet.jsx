@@ -37,6 +37,7 @@ const AddPet = () => {
 	const previewFile = async (file) => {
 		const reader = new FileReader();
 		reader.readAsDataURL(file);
+		console.log(reader.result);
 		reader.onloadend = () => {
 			setPreviewPetImage(reader.result);
 		};

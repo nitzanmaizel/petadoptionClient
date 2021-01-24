@@ -32,11 +32,6 @@ const Home = () => {
 					“A DOG is the ONLY THING on earth that LOVE YOU MORE than he loves HIMSELF ” -
 					Josh Billings
 				</div>
-				<div className='col box-quote'>
-					“I have felt cats rubbing their faces against mine and touching my cheek with
-					claws carefully sheathed. These things, to me, are expressions of love.” – James
-					Herriot
-				</div>
 			</div>
 			<div className='text-center mt-5'>
 				<Link className='h1' to='/searchPet'>
