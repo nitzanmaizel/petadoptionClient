@@ -281,7 +281,7 @@ const AddPet = () => {
 								disabled={disabled}
 							>
 								{loading && <LoadingSpinner />}
-								{currentPet !== null ? 'Add a pet' : 'Update Pet'}
+								{currentPet ? 'Update Pet' : 'Add a pet'}
 							</Button>
 						</Row>
 					</Form>

@@ -9,13 +9,13 @@ const ProfileSettings = () => {
 	const { user } = authContext;
 	const { updateProfile } = userContext;
 	const [formData, setFormData] = useState({
-		firstName: user.firstName || '',
-		lastName: user.lastName || '',
-		email: user.email || '',
+		firstName: user ? user.firstName : '',
+		lastName: user ? user.lastName : '',
+		email: user ? user.email : '',
 		password: '',
 		password2: '',
-		phoneNumber: user.phoneNumber || '',
-		bio: user.bio || '',
+		phoneNumber: user ? user.phoneNumber : '',
+		bio: user ? user.bio : '',
 	});
 
 	const [loading, setLoading] = useState(false);
