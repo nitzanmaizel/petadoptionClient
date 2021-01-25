@@ -8,19 +8,21 @@ const AddPet = () => {
 	const { addPet, currentPet } = petContext;
 
 	const [formData, setFormData] = useState({
-		type: 'Dog' || currentPet.type,
-		name: '' || currentPet.name,
-		adoptionStatus: 'Available' || currentPet.adoptionStatus,
-		height: 0 || currentPet.height,
-		weight: 0 || currentPet.weight,
-		color: '' || currentPet.color,
-		bio: '' || currentPet.bio,
-		dietaryRestrictions: '' || currentPet.dietaryRestrictions,
-		breed: '' || currentPet.breed,
-		hypoallergenic: false || currentPet.hypoallergenic,
+		type: currentPet ? currentPet.type : '',
+		name: currentPet ? currentPet.name : '',
+		adoptionStatus: currentPet ? currentPet.adoptionStatus : 'Available',
+		height: currentPet ? currentPet.height : 0,
+		weight: currentPet ? currentPet.weight : 0,
+		color: currentPet ? currentPet.color : '',
+		bio: currentPet ? currentPet.bio : '',
+		dietaryRestrictions: currentPet ? currentPet.dietaryRestrictions : '',
+		breed: currentPet ? currentPet.breed : '',
+		hypoallergenic: currentPet ? currentPet.hypoallergenic : false,
 	});
 	const [imageState, setImageState] = useState('');
-	const [previewPetImage, setPreviewPetImage] = useState('' || currentPet.petImage);
+	const [previewPetImage, setPreviewPetImage] = useState(
+		currentPet ? currentPet.petImage : ''
+	);
 	const [petImage, setPetImage] = useState();
 
 	const [disabled, setDisabled] = useState(false);
@@ -37,7 +39,7 @@ const AddPet = () => {
 	const previewFile = async (file) => {
 		const reader = new FileReader();
 		reader.readAsDataURL(file);
-		console.log(reader.result);
+		console.log(reader);
 		reader.onloadend = () => {
 			setPreviewPetImage(reader.result);
 		};
